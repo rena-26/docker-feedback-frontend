@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Category & App</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="page-getstarted">
+  <div class="panel-container" id="selectionPanel">
+    <h2>Select Category & App</h2>
+    <strong>Select a Category:</strong>
+    <select id="categorySelect">
+      <option value="">--Select Category--</option>
+      <option value="food">Food</option>
+      <option value="clothing">Clothing</option>
+      <option value="electronics">Electronics</option>
+      <option value="ridesharing">Ridesharing</option>
+      <option value="beauty">Beauty Products</option>
+    </select>
+    <br>
+    <strong>Select an App:</strong>
+    <select id="appSelect" disabled>
+      <option value="">--Select App--</option>
+    </select>
+    <br>
+    <button class="btn" onclick="proceedToFeedback()">Proceed to Feedback</button>
+    <br>
+    <button class="btn" onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    const categoryToApps = {
+      food: ["Zomato", "Swiggy"],
+      clothing: ["Amazon", "Flipkart", "Meesho", "Myntra"],
+      electronics: ["Flipkart", "Amazon"],
+      ridesharing: ["Rapido", "Uber", "Ola"],
+      beauty: ["Purplle", "Nykaa", "Smytten"]
+    };
+
+    const categorySelect = document.getElementById("categorySelect");
+    const appSelect = document.getElementById("appSelect");
+
+    if (!localStorage.getItem("loggedIn")) {
+      window.location.href = "index.html";
+    }
+
+    categorySelect.addEventListener("change", function () {
+      const selectedCategory = this.value;
+      appSelect.innerHTML = '<option value="">--Select App--</option>';
+      if (categoryToApps[selectedCategory]) {
+        categoryToApps[selectedCategory].forEach(app => {
+          const option = document.createElement("option");
+          option.value = app.toLowerCase();
+          option.textContent = app;
+          appSelect.appendChild(option);
+        });
+        appSelect.disabled = false;
+      } else {
+        appSelect.disabled = true;
+      }
+    });
+
+    function proceedToFeedback() {
+      const category = categorySelect.value;
+      const app = appSelect.value;
+      if (!category || !app) {
+        alert("Please select both category and app.");
+        return;
+      }
+      sessionStorage.setItem("selectedApp", app);
+      window.location.href = "feedback.html";
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      localStorage.removeItem("username");
+      sessionStorage.removeItem("selectedApp");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

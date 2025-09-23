@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-welcome">
+  <div class="panel-container">
+    <h2>Welcome, <span id="userDisplay"></span>!</h2>
+    <p>Start providing feedback by selecting a category and app.</p>
+    <button class="btn" onclick="goToGetStarted()">Proceed</button>
+    <br><br>
+    <button class="btn" onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    const username = localStorage.getItem("username");
+    if (!localStorage.getItem("loggedIn")) {
+      window.location.href = "index.html";
+    }
+    document.getElementById("userDisplay").innerText = username;
+
+    function goToGetStarted() {
+      window.location.href = "getstarted.html";
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      localStorage.removeItem("username");
+      sessionStorage.removeItem("selectedApp");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

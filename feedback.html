@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Provide Feedback</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+</head>
+<body class="page-feedback">
+  <div class="panel-container" id="panel">
+    <strong id="appHeading">How satisfied are you with our app's performance?</strong>
+    <div class="ratings-container">
+      <div class="rating"><img src="https://i.ibb.co/fYN2rVn/no.png" alt=""/><small>Unhappy</small></div>
+      <div class="rating"><img src="https://i.ibb.co/3M8Ddsf/neutral.png" alt=""/><small>Neutral</small></div>
+      <div class="rating active"><img src="https://i.ibb.co/VVDYGLZ/yes.png" alt=""/><small>Satisfied</small></div>
+    </div>
+    <textarea id="feedbackText" rows="4" placeholder="Write your feedback here..."></textarea>
+    <br>
+    <button class="btn" id="send">Send Review</button>
+    <button class="btn" id="viewHistory">View History</button>
+    <br>
+    <button class="btn" onclick="logout()">Logout</button>
+    <div id="historySection" style="display: none;">
+      <h3>Past Feedback</h3>
+      <ul id="feedbackList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

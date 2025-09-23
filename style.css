@@ -1,0 +1,104 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Panel styling */
+.panel-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  text-align: center;
+  width: 400px;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body.page-feedback .panel-container {
+  width: 350px;
+  padding: 20px 30px;
+}
+
+input, select, textarea {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #0056b3;
+}
+
+/* Ratings container */
+.ratings-container {
+  display: flex;
+  justify-content: center;  /* horizontally center all emojis */
+  gap: 20px;                /* space between emojis */
+  margin: 15px 0;
+}
+
+/* All emojis smaller */
+.rating img {
+  width: 50px;   /* smaller size */
+  height: 50px;
+  transition: transform 0.2s; /* smooth hover/active effect */
+}
+
+/* Hover effect for emojis */
+.rating:hover img {
+  transform: scale(1.2); /* slightly bigger on hover */
+}
+
+/* Active emoji */
+.rating.active img {
+  width: 55px;   /* slightly bigger than normal */
+  height: 55px;
+  border: 2px solid #007bff;
+  border-radius: 50%;
+}
+
+/* Backgrounds */
+body.page-index {
+  background: #f0f0f0 url('https://media.istockphoto.com/id/1326953883/vector/smiley-face-feedback-rating-icons.jpg?s=612x612&w=0&k=20&c=S7TPrmmELtYcrX8741fO_s3n8qt8KRXwkRQNfKj6Hmg=') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.page-welcome {
+  background: #f0f0f0 url('https://as2.ftcdn.net/jpg/02/35/59/05/1000_F_235590562_qOK9bjxPYNhWjDUo3wKRbn1elaGtkvXR.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.page-getstarted {
+  background: #f0f0f0 url('https://media.istockphoto.com/id/1405643862/vector/vector-calendar-pattern-calendar-seamless-background.jpg?s=612x612&w=0&k=20&c=cy0soY3gp9WzHLJlsgWpVZUS6YASb4rLRqZFuDC4Nt4=') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.page-feedback {
+  background: #f0f0f0 url('https://static.vecteezy.com/system/resources/previews/007/779/170/non_2x/illustration-on-white-background-the-best-estimate-of-performance-the-score-of-five-points-people-leave-feedback-and-comments-successful-work-is-the-highest-score-vector.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.page-thankyou {
+  background: #f0f0f0 url('https://static.vecteezy.com/system/resources/previews/007/779/170/non_2x/illustration-on-white-background-the-best-estimate-of-performance-the-score-of-five-points-people-leave-feedback-and-comments-successful-work-is-the-highest-score-vector.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
